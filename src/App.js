@@ -10,8 +10,8 @@ import { Component } from 'react'
 
 class App extends Component {
   state = {
-    isMain: false,
-    isSettings: true,
+    isMain: true,
+    isSettings: false,
     isProfile: false,
   }
 

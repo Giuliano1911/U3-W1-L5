@@ -5,7 +5,7 @@ class MyModal extends Component {
   render() {
     return (
       <Modal.Dialog className="mt-3">
-        <Modal.Header className=" justify-content-between" closeButton>
+        <Modal.Header className=" justify-content-between">
           <Modal.Title>{this.props.movie.Title}</Modal.Title>
         </Modal.Header>
 
