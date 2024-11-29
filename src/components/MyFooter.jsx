@@ -2,7 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 function MyFooter() {
   return (
-    <Container className=" text-white opacity-75">
+    <Container className=" text-white opacity-75 mt-5">
       <Row className=" justify-content-center">
         <Col className=" col-sm-12 col-lg-8">
           <Row className="justify-content-center">
