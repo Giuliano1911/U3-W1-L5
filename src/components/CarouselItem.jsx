@@ -16,10 +16,7 @@ class MyCarouselItem extends Component {
           this.setState({ isClicked: !this.state.isClicked })
         }}
       >
-        <Card.Img
-          src={this.props.mov.Poster}
-          className=" w-75 mx-auto animation"
-        />
+        <Card.Img src={this.props.mov.Poster} className="mx-auto animation" />
         {this.state.isClicked && <MyModal movie={this.props.mov} />}
       </Card>
     )
