@@ -20,8 +20,13 @@ class MyCarousel extends Component {
       items: 3,
       slidesToSlide: 3, // optional, default to 1.
     },
+    desktopxxl: {
+      breakpoint: { max: 3000, min: 1200 },
+      items: 5,
+      slidesToSlide: 5, // optional, default to 1.
+    },
     desktopLg: {
-      breakpoint: { max: 3000, min: 994 },
+      breakpoint: { max: 1200, min: 994 },
       items: 4,
       slidesToSlide: 4, // optional, default to 1.
     },
