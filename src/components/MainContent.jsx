@@ -7,9 +7,9 @@ class MainContent extends Component {
     return (
       <>
         <Hero />
-        <MyCarousel search={'Godzilla'} />
-        <MyCarousel search={'Cars'} />
-        <MyCarousel search={'Star Wars'} />
+        <MyCarousel search={'Harry Potter'} />
+        {/* <MyCarousel search={'Cars'} /> */}
+        {/* <MyCarousel search={'Star Wars'} /> */}
       </>
     )
   }

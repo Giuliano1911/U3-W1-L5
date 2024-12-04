@@ -3,7 +3,12 @@ import { Nav, Navbar } from 'react-bootstrap'
 import logo from './assets/netflix_logo.png'
 import avatar from './assets/avatar.png'
 
+import { useNavigate, useLocation, Link } from 'react-router-dom'
+
 function MyNav(props) {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   return (
     <Navbar
       collapseOnSelect
@@ -18,7 +23,7 @@ function MyNav(props) {
         <button
           className=" align-self-center text-white border-0 bg-dark p-0 pb-3"
           onClick={() => {
-            props.toSettings()
+            navigate('/settings')
           }}
         >
           <i className="fas fa-cog"></i>
@@ -34,7 +39,7 @@ function MyNav(props) {
           <button
             className=" border-0 bg-dark"
             onClick={() => {
-              props.toProfile()
+              navigate('/profile')
             }}
           >
             <img
@@ -51,7 +56,7 @@ function MyNav(props) {
         <button
           className=" border-0 bg-dark"
           onClick={() => {
-            props.toMain()
+            navigate('/')
           }}
         >
           <img
@@ -68,7 +73,7 @@ function MyNav(props) {
           <button
             className=" border-0 bg-dark"
             onClick={() => {
-              props.toMain()
+              navigate('/')
             }}
           >
             <img
@@ -80,11 +85,19 @@ function MyNav(props) {
           </button>
         </div>
         <Nav className="offcanvas-header">
-          <Nav.Link className=" pe-2 p-lg-3">Home</Nav.Link>
-          <Nav.Link className=" pe-2 p-lg-3">Tv Show</Nav.Link>
-          <Nav.Link className=" pe-2 p-lg-3 active">Movies</Nav.Link>
-          <Nav.Link className=" pe-2 p-lg-3">Recently Added</Nav.Link>
-          <Nav.Link className=" pe-2 p-lg-3">My List</Nav.Link>
+          <Link
+            className={
+              location.pathname === '/'
+                ? 'nav-link pe-2 lg-3 active'
+                : 'nav-link pe-2 lg-3'
+            }
+          >
+            Home
+          </Link>
+          <Link className="nav-link pe-2 p-lg-3">Tv Show</Link>
+          <Link className="nav-link pe-2 p-lg-3">Movies</Link>
+          <Link className="nav-link pe-2 p-lg-3">Recently Added</Link>
+          <Link className="nav-link pe-2 p-lg-3">My List</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

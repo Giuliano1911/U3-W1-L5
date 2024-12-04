@@ -6,56 +6,32 @@ import MyFooter from './components/MyFooter'
 import MainContent from './components/MainContent'
 import Settings from './components/Settings'
 import Profile from './components/Profile'
+import Error from './components/Error'
+import MovieDetails from './components/MovieDetails'
+
 import { Component } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 class App extends Component {
-  state = {
-    isMain: true,
-    isSettings: false,
-    isProfile: false,
-  }
-
-  setMain = () => {
-    this.setState({
-      isMain: true,
-      isSettings: false,
-      isProfile: false,
-    })
-  }
-  setSettings = () => {
-    this.setState({
-      isMain: false,
-      isSettings: true,
-      isProfile: false,
-    })
-  }
-  setProfile = () => {
-    this.setState({
-      isMain: false,
-      isSettings: false,
-      isProfile: true,
-    })
-  }
-
   render() {
     return (
-      <>
+      <BrowserRouter>
         <header>
-          <MyNav
-            toMain={this.setMain}
-            toSettings={this.setSettings}
-            toProfile={this.setProfile}
-          />
+          <MyNav />
         </header>
         <main>
-          {this.state.isMain && <MainContent />}
-          {this.state.isSettings && <Settings />}
-          {this.state.isProfile && <Profile />}
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/details/:id" element={<MovieDetails />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
         </main>
         <footer>
           <MyFooter />
         </footer>
-      </>
+      </BrowserRouter>
     )
   }
 }

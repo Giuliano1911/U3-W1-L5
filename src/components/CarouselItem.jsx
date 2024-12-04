@@ -1,26 +1,20 @@
-import { Component } from 'react'
 import { Card } from 'react-bootstrap'
-import MyModal from './MyModal'
+import { useNavigate } from 'react-router-dom'
+// import MyModal from './MyModal'
 
-class MyCarouselItem extends Component {
-  state = {
-    isClicked: false,
-  }
-
-  render() {
-    return (
-      <Card
-        className="p-2 bg-dark border-0"
-        role="button"
-        onClick={(e) => {
-          this.setState({ isClicked: !this.state.isClicked })
-        }}
-      >
-        <Card.Img src={this.props.mov.Poster} className="mx-auto animation" />
-        {this.state.isClicked && <MyModal movie={this.props.mov} />}
-      </Card>
-    )
-  }
+const MyCarouselItem = (props) => {
+  const navigate = useNavigate()
+  return (
+    <Card
+      className="p-2 bg-dark border-0"
+      role="button"
+      onClick={(e) => {
+        navigate('/details/' + props.mov.imdbID)
+      }}
+    >
+      <Card.Img src={props.mov.Poster} className="mx-auto animation" />
+    </Card>
+  )
 }
 
 export default MyCarouselItem
